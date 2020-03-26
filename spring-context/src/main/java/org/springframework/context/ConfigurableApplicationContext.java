@@ -211,6 +211,14 @@ public interface ConfigurableApplicationContext extends ApplicationContext, Life
 	boolean isActive();
 
 	/**
+	 * 返回此应用程序上下文的内部bean工厂。
+	 * 可用于访问基础工厂的特定功能。
+	 * <p>
+	 * 注意：不要使用它来对bean工厂进行后处理；单例之前已经实例化。
+	 * 使用BeanFactoryPostProcessor来拦截Bean之前的BeanFactory设置过程。
+	 * <p>通常，只有在上下文处于活动状态时，即在 {@link #refresh()}和{@link #close()}之间，才能访问此内部工厂。
+	 *  {@link #isActive()}标志可用于检查上下文是否处于适当的状态。
+	 *
 	 * Return the internal bean factory of this application context.
 	 * Can be used to access specific functionality of the underlying factory.
 	 * <p>Note: Do not use this to post-process the bean factory; singletons

@@ -196,6 +196,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	@Nullable
 	private ConfigurableEnvironment environment;
 
+	//bean factory 后置处理器
 	/** BeanFactoryPostProcessors to apply on refresh. */
 	private final List<BeanFactoryPostProcessor> beanFactoryPostProcessors = new ArrayList<>();
 
@@ -557,6 +558,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 				// Invoke factory processors registered as beans in the context.
 				invokeBeanFactoryPostProcessors(beanFactory);
 
+				//注册bean处理器拦截bean的创建
 				// Register bean processors that intercept bean creation.
 				registerBeanPostProcessors(beanFactory);
 
@@ -735,7 +737,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	}
 
 	/**
-	 * 实例化并调用所有已注册的BeanFactoryPostProcessor Bean，
+	 * 实例化并调用所有已注册的BeanFactory后置处理器Bean，
 	 * 遵循显式顺序（如果给定的话）。
 	 * <p>
 	 * 必须在单例实例化之前调用。

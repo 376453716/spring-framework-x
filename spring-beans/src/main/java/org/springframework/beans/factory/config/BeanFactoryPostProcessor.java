@@ -19,6 +19,11 @@ package org.springframework.beans.factory.config;
 import org.springframework.beans.BeansException;
 
 /**
+ * 工厂hook，允许自定义修改应用程序上下文的bean definition，以适配context基础bean factory的bean属性值。
+ * <p>
+ * 对于针对系统管理员的自定义配置文件很有用，这些文件覆盖了在应用程序上下文中配置的Bean属性。
+ * 请参阅{@link PropertyResourceConfigurer}及其具体实现，以了解可以解决此类配置需求的现成解决方案。
+ * <p>
  * Factory hook that allows for custom modification of an application context's
  * bean definitions, adapting the bean property values of the context's underlying
  * bean factory.
