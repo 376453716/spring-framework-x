@@ -50,6 +50,8 @@ public interface ConfigurableListableBeanFactory
 	void ignoreDependencyType(Class<?> type);
 
 	/**
+	 * 对自动装配忽略给定的依赖接口。
+	 * <p>通常由应用程序上下文用来注册以其他方式解析的依赖项，例如通过BeanFactoryAware的BeanFactory或通过ApplicationContextAware的ApplicationContext。 * <p>默认情况下，仅BeanFactoryAware接口被忽略。 *要忽略其他类型，请为每种类型调用此方法。
 	 * Ignore the given dependency interface for autowiring.
 	 * <p>This will typically be used by application contexts to register
 	 * dependencies that are resolved in other ways, like BeanFactory through

@@ -41,6 +41,8 @@ import org.springframework.core.PriorityOrdered;
 import org.springframework.lang.Nullable;
 
 /**
+ * AbstractApplicationContext的委托，进行后处理器处理。
+ *
  * Delegate for AbstractApplicationContext's post-processor handling.
  *
  * @author Juergen Hoeller
