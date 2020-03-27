@@ -94,6 +94,8 @@ public interface ApplicationContext extends EnvironmentCapable, ListableBeanFact
 	long getStartupDate();
 
 	/**
+     * 返回parent context，如果没有parent或者是继承中的root，则为null
+     *
 	 * Return the parent context, or {@code null} if there is no parent
 	 * and this is the root of the context hierarchy.
 	 * @return the parent context, or {@code null} if there is no parent
