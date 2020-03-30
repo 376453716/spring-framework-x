@@ -903,6 +903,7 @@ public class DispatcherServlet extends FrameworkServlet {
 
 
 	/**
+	 * 标准的servlet入口，委托{@link #doDispatch}进行实际的分派。
 	 * Exposes the DispatcherServlet-specific request attributes and delegates to {@link #doDispatch}
 	 * for the actual dispatching.
 	 */
@@ -940,6 +941,7 @@ public class DispatcherServlet extends FrameworkServlet {
 		}
 
 		try {
+			//执行分发
 			doDispatch(request, response);
 		}
 		finally {
