@@ -139,7 +139,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
 
 	/**
-	 * 被注解定义的类
+	 * 根据注解或者手动添加的类的beanClass
 	 */
 	@Nullable
 	private volatile Object beanClass;

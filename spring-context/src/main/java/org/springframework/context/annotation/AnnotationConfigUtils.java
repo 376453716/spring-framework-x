@@ -172,7 +172,7 @@ public abstract class AnnotationConfigUtils {
 		//bean 定义列表集合
 		Set<BeanDefinitionHolder> beanDefs = new LinkedHashSet<>(8);
 
-		//注册了6个后置处理器bean definition：手动创建后置处理器的RootBeanDefinition，然后根据定义好的名字进行注册
+		//注册了6个bean factory或bean的后置处理器的bean definition：手动创建后置处理器的RootBeanDefinition，然后根据定义好的名字进行注册
 
 		//注册ConfigurationClassPostProcessor
 		if (!registry.containsBeanDefinition(CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME)) {

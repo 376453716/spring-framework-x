@@ -22,7 +22,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.core.AliasRegistry;
 
 /**
- * bean definition注册接口
+ * bean definition 注册表接口
  * 包含bean definition的注册表的接口，例如RootBeanDefinition 和ChildBeanDefinition实例。
  * 通常由在内部与AbstractBeanDefinition层次结构配合使用的BeanFactories实现。
  *

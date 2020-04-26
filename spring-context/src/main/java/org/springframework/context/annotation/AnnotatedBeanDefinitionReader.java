@@ -55,7 +55,7 @@ import org.springframework.util.Assert;
 public class AnnotatedBeanDefinitionReader {
 
 	/**
-	 * BeanDefinition注册器，将bean注册到该注册表中
+	 * BeanDefinition注册表，将bean注册到该注册表中
 	 */
 	private final BeanDefinitionRegistry registry;
 
@@ -110,7 +110,7 @@ public class AnnotatedBeanDefinitionReader {
 		this.registry = registry;
 		//condition条件表达式解析器
 		this.conditionEvaluator = new ConditionEvaluator(registry, environment, null);
-		//调用工具类，注册后置处理器到当前注册表中
+		//调用工具类，注册注解配置的后置处理器到当前注册表中
 		AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
 	}
 
