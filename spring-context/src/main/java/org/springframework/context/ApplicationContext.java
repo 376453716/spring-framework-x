@@ -24,7 +24,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.lang.Nullable;
 
 /**
- * 中央接口，为应用程序提供配置。 在应用程序运行时为只读，但如果实现支持，则可以重新加载。
+ * spring容器上下文中心接口，为应用程序提供配置。 在应用程序运行时为只读，但如果实现支持，则可以重新加载。
  *
  * 用于访问应用程序组件的Bean工厂方法。
  * 继承自{@link org.springframework.beans.factory.ListableBeanFactory}。
@@ -69,6 +69,7 @@ public interface ApplicationContext extends EnvironmentCapable, ListableBeanFact
 		MessageSource, ApplicationEventPublisher, ResourcePatternResolver {
 
 	/**
+	 *
 	 * Return the unique id of this application context.
 	 * @return the unique id of the context, or {@code null} if none
 	 */
@@ -104,6 +105,13 @@ public interface ApplicationContext extends EnvironmentCapable, ListableBeanFact
 	ApplicationContext getParent();
 
 	/**
+	 * 公开容器上下文的AutowireCapableBeanFactory。
+	 * <p>应用程序代码通常不使用此功能，除非是以下场景：初始化位于容器上下文之外的bean，应用spring bean的全部或部分生命周期
+	 * <p>另外，由{@link ConfigurableApplicationContext}接口公开的内部BeanFactory也提供对{@link AutowireCapableBeanFactory}接口的访问。
+	 * 本方法主要用作ApplicationContext接口上的便捷特定工具。
+	 * <p><b>注意：从4.2版本开始，在关闭应用程序上下文之后，此方法将始终抛出IllegalStateException *。</ b>
+	 * 在当前的Spring Framework 版本中，只有可刷新的应用程序上下文才具有这种行为；从4.2开始，将要求所有应用程序上下文实现都符合。
+	 *
 	 * Expose AutowireCapableBeanFactory functionality for this context.
 	 * <p>This is not typically used by application code, except for the purpose of
 	 * initializing bean instances that live outside of the application context,

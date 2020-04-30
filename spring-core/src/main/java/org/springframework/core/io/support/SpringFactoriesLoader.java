@@ -40,8 +40,13 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 框架内部使用的通用工厂加载机制。
  * General purpose factory loading mechanism for internal use within the framework.
- *
+ * <p>{@code SpringFactoriesLoader}  {@linkplain #loadFactories loads}
+ * 加载和实例化一个来自{@value #FACTORIES_RESOURCE_LOCATION}文件的给定类型的工厂，
+ * 这些文件可能存在classpath中的多个jar文件中。
+ * {@code spring.factories}文件必须是 {@link Properties}格式的，key是完整的接口或抽象类的标准名称，
+ * 值是逗号分割的实现类名的列表
  * <p>{@code SpringFactoriesLoader} {@linkplain #loadFactories loads} and instantiates
  * factories of a given type from {@value #FACTORIES_RESOURCE_LOCATION} files which
  * may be present in multiple JAR files in the classpath. The {@code spring.factories}
