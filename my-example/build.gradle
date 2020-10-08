@@ -8,6 +8,7 @@ version '5.2.4.RELEASE'
 sourceCompatibility = 1.8
 
 repositories {
+    maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     mavenCentral()
 }
 
