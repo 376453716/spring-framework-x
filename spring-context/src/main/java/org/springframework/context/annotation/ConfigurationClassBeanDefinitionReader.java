@@ -111,6 +111,7 @@ class ConfigurationClassBeanDefinitionReader {
 
 
 	/**
+	 * 读取{@code configurationModel}，根据其内容在注册表中注册bean定义。
 	 * Read {@code configurationModel}, registering bean definitions
 	 * with the registry based on its contents.
 	 */
@@ -122,6 +123,7 @@ class ConfigurationClassBeanDefinitionReader {
 	}
 
 	/**
+	 * 读取特定的{@link ConfigurationClass}，为类本身及其所有{@link Bean}方法注册bean定义。
 	 * Read a particular {@link ConfigurationClass}, registering bean definitions
 	 * for the class itself and all of its {@link Bean} methods.
 	 */
@@ -136,7 +138,7 @@ class ConfigurationClassBeanDefinitionReader {
 			this.importRegistry.removeImportingClass(configClass.getMetadata().getClassName());
 			return;
 		}
-
+		//注册imported类
 		if (configClass.isImported()) {
 			registerBeanDefinitionForImportedConfigurationClass(configClass);
 		}
@@ -171,6 +173,7 @@ class ConfigurationClassBeanDefinitionReader {
 	}
 
 	/**
+	 * 读取给定的{@link BeanMethod}，根据其内容向BeanDefinitionRegistry注册Bean定义。
 	 * Read the given {@link BeanMethod}, registering bean definitions
 	 * with the BeanDefinitionRegistry based on its contents.
 	 */

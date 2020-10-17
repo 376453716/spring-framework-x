@@ -41,3 +41,10 @@ out
 test-output
 atlassian-ide-plugin.xml
 .gradletasknamecache
+spring-aop/build/
+*/build
+spring-oxm/build
+spring-jcl/build/
+spring-instrument/build
+spring-expression/build
+spring-jcl/build

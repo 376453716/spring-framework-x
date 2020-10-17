@@ -74,6 +74,7 @@ abstract class ConfigurationClassUtils {
 
 
 	/**
+	 * 检查给定的bean定义是否是配置类（或在配置/组件类中声明的嵌套组件类，也要自动注册）的候选者，并进行相应标记。
 	 * Check whether the given bean definition is a candidate for a configuration class
 	 * (or a nested component class declared within a configuration/component class,
 	 * to be auto-registered as well), and mark it accordingly.

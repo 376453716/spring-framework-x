@@ -66,13 +66,18 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
+ * {@link BeanFactoryPostProcessor}用于启动引导处理{@link Configuration @Configuration}类。
  * {@link BeanFactoryPostProcessor} used for bootstrapping processing of
  * {@link Configuration @Configuration} classes.
  *
+ * 使用{@code <context：annotation-config />}或{@code <context：component-scan />}时默认注册。
+ * 否则，可以像其他任何BeanFactoryPostProcessor一样手动声明。
  * <p>Registered by default when using {@code <context:annotation-config/>} or
  * {@code <context:component-scan/>}. Otherwise, may be declared manually as
  * with any other BeanFactoryPostProcessor.
  *
+ * 此后置处理器按优先级排序，因为在任何其他{@link BeanFactoryPostProcessor}执行之前，
+ * 在{@code @Configuration}类中声明的所有{@link Bean}方法都必须注册其对应的bean定义，这一点很重要。
  * <p>This post processor is priority-ordered as it is important that any
  * {@link Bean} methods declared in {@code @Configuration} classes have
  * their corresponding bean definitions registered before any other
@@ -259,6 +264,7 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 	}
 
 	/**
+	 * 基于{@link Configuration}类的注册表来构建和验证配置模型。
 	 * Build and validate a configuration model based on the registry of
 	 * {@link Configuration} classes.
 	 */
@@ -322,6 +328,7 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 			Set<ConfigurationClass> configClasses = new LinkedHashSet<>(parser.getConfigurationClasses());
 			configClasses.removeAll(alreadyParsed);
 
+			//读取模型并根据其内容创建bean定义
 			// Read the model and create bean definitions based on its content
 			if (this.reader == null) {
 				this.reader = new ConfigurationClassBeanDefinitionReader(

@@ -23,6 +23,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 表示要导入的一个或多个<em>组件类</em>； 通常是{@link Configuration @Configuration}类。
  * Indicates one or more <em>component classes</em> to import &mdash; typically
  * {@link Configuration @Configuration} classes.
  *
